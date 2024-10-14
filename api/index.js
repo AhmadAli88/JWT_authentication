@@ -1,7 +1,9 @@
 import express from "express";
 import jwt from "jsonwebtoken";
+import cors from "cors";
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 const users = [
@@ -28,7 +30,7 @@ const generateAccessToken = (user) => {
     },
     "mySecretKey",
     {
-      expiresIn: "15m", // Token expires in 15 minutes
+      expiresIn: "5s", // Token expires in 15 minutes
     }
   );
 };
